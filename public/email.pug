@@ -2,16 +2,16 @@ html
     head 
         style 
             | p, li { font-family: sans-serif; }
-            | p { line-height: 2.5em; }
+            | p, li:last-child { margin-bottom: 2em; }
             | img { width: 35%; }
-            
+            | .heading { font-weight: bold; margin-bottom: 0.5em; }
+            | ul { margin-top: 0; }
     body 
         p Dear #{parent},
         p Thank you for signing up to Let's Code Spring Branch!
         p #{student} is signed up for session #{session.num} of #{course}. They #{lunch} during the camp. Students are not allowed to leave campus on their own to buy lunch from nearby restaurants.
         p If possible, we ask that students bring their school Chromebook or a personal laptop. They will be able to check out a Chromebook at the school if necessary.
-        p 
-            b Monday (#{session.start}) to Thursday (#{session.end}):
+        p(class="heading") Monday (#{session.start}) to Thursday (#{session.end}):
         ul
             li Student drop off will be in the cafeteria at Stratford High School (
                 a(href="https://www.google.com/maps/place/14555+Fern+Dr,+Houston,+TX+77079/") 14555 Fern Dr 77079
@@ -19,8 +19,7 @@ html
             li Class will be held from 9:00 AM - 3:30 PM with a one hour lunch at noon
             li Student pick will start at 3:30 PM back in the cafeteria
         p Please enter Stratford at the back/south entrance of the school using Perthshire Rd to turn in. There is a door that enters directly into the cafeteria. Attached is a map detailing where that is.
-        p 
-            b Friday (#{session.zoom}):
+        p(class="heading") Friday (#{session.virtual}):
         ul 
             li Please do not come to the Stratford campus because Stratford will be closed. 
             li Instead, please join the camp zoom link (the link will be emailed shortly), where your students will deliver presentations on their capstone projects.
