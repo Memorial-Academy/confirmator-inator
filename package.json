@@ -4,7 +4,9 @@
   "description": "Confirmation emails",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "tsc && mkdir data/output && rm -rf data/output/*",
+    "compile": "node dist/index.js",
+    "build": "npm run prepare && npm run compile"
   },
   "author": "",
   "license": "ISC",
