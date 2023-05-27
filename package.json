@@ -10,6 +10,7 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
+    "csv-parse": "^5.4.0",
     "pug": "^3.0.2"
   },
   "devDependencies": {
