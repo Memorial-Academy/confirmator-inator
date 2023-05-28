@@ -26,9 +26,10 @@ fs.createReadStream("data/signup.csv")
 
 function newMessage(data: Array<String>): void {
     var options = {
+        email: data[2],
         parent: data[1] == data[6] ? "parent of " + data[6] : data[1],
         student: data[6],
-        course: data[14],
+        course: extendCourse(data[14]),
         lunch: lunchOption(data[9]),
         session: sessionParse(data[13])
     };
@@ -57,4 +58,10 @@ function sessionParse(session: String): session {
         end: "June 15",
         virtual: "June 16"
     }
+}
+
+function extendCourse(course: String): String {
+    if (course == "Intro to Game Dev w/ Scratch") return "Introduction to Game Development";
+    else if (course == "Intro to Web Dev") return "Introduction to Web Development";
+    else return course;
 }

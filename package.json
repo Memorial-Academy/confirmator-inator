@@ -4,7 +4,7 @@
   "description": "Confirmation emails",
   "main": "index.js",
   "scripts": {
-    "prepare": "tsc && mkdir data/output && rm -rf data/output/*",
+    "prepare": "tsc && rm -rf data/output && mkdir data/output",
     "compile": "node dist/index.js",
     "build": "npm run prepare && npm run compile"
   },

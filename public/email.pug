@@ -6,7 +6,12 @@ html
             | img { width: 35%; }
             | .heading { font-weight: bold; margin-bottom: 0.5em; }
             | ul { margin-top: 0; }
-    body 
+            | #meta { margin-bottom:5em; border-bottom: 2px solid black; }
+            | #meta p {font-weight:bold; font-size: 1.5em; }
+    body
+        div(id="meta")
+            p TO: !{email}
+            p SUBJECT: Sign Up Confirmation - Let's Code SBISD
         p Dear #{parent},
         p Thank you for signing up to Let's Code Spring Branch!
         p #{student} is signed up for session #{session.num} of #{course}. They #{lunch} during the camp. Students are not allowed to leave campus on their own to buy lunch from nearby restaurants.

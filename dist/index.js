@@ -19,26 +19,18 @@ fs_1.default.createReadStream("data/signup.csv")
     .on("end", () => {
     console.log("END");
 });
-// const message = {
-//     from: "letscodesbisd@gmail.com",
-//     to: "letscodesbisd@gmail.com",
-//     subject: "Sign Up Confirmation - Let's Code Spring Branch",
-//     html: "",
-//     attachments:[{
-//         filename: ""
-//     }]
-// }
 function newMessage(data) {
-    row += 1;
     var options = {
+        email: data[2],
         parent: data[1] == data[6] ? "parent of " + data[6] : data[1],
         student: data[6],
-        course: data[14],
+        course: extendCourse(data[14]),
         lunch: lunchOption(data[9]),
         session: sessionParse(data[13])
     };
     var content = template(options);
     fs_1.default.writeFile("data/output/" + data[2] + row + ".html", content, error => console.error);
+    row += 1;
 }
 function lunchOption(opt) {
     if (opt == "Yes")
@@ -62,4 +54,12 @@ function sessionParse(session) {
             end: "June 15",
             virtual: "June 16"
         };
+}
+function extendCourse(course) {
+    if (course == "Intro to Game Dev w/ Scratch")
+        return "Introduction to Game Development";
+    else if (course == "Intro to Web Dev")
+        return "Introduction to Web Development";
+    else
+        return course;
 }
