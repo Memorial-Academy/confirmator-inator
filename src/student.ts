@@ -9,7 +9,7 @@ interface session {
     virtual: String
 }
 
-const template = compileFile("public/email.pug");
+const template = compileFile("templates/student.pug");
 var row = 6;
 
 fs.createReadStream("data/signup.csv")
