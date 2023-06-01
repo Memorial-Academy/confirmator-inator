@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const pug_1 = require("pug");
 const fs_1 = __importDefault(require("fs"));
 const csv_parse_1 = require("csv-parse");
-const template = (0, pug_1.compileFile)("public/email.pug");
-var row = 6;
+const template = (0, pug_1.compileFile)("templates/student.pug");
+var row = 59;
 fs_1.default.createReadStream("data/signup.csv")
     .pipe((0, csv_parse_1.parse)({ delimiter: ",", from_line: row }))
     .on("data", row => {

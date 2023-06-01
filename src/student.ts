@@ -10,7 +10,7 @@ interface session {
 }
 
 const template = compileFile("templates/student.pug");
-var row = 6;
+var row = 59;
 
 fs.createReadStream("data/signup.csv")
     .pipe(parse({delimiter: ",", from_line: row}))
