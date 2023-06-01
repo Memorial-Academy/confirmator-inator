@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "tsc && rm -rf data/output && mkdir data/output",
-    "compile": "node dist/index.js",
+    "compile": "node dist/student.js",
     "build": "npm run prepare && npm run compile"
   },
   "author": "",
