@@ -4,19 +4,23 @@
   "description": "Confirmation emails",
   "main": "index.js",
   "scripts": {
-    "prepare": "tsc && rm -rf data/output && mkdir data/output",
+    "prepare_emails": "tsc && rm -rf data/output && mkdir data/output",
     "compile": "node dist/student.js",
-    "build": "npm run prepare && npm run compile"
+    "build": "npm run prepare && npm run compile",
+    "test:student": "node test/pug_viewer.js ./templates/student.pug \"{\\\"email\\\":\\\"test@example.com\\\", \\\"parent\\\":\\\"John Doe\\\",\\\"student\\\":\\\"Jane Doe\\\", \\\"session\\\":\\\"Week 2: June 10 - 14\\\", \\\"course\\\":\\\"Introduction to Web Development\\\"}\""
   },
   "author": "",
   "license": "ISC",
   "private": true,
   "dependencies": {
     "csv-parse": "^5.4.0",
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.13",
     "pug": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
+    "@types/nodemailer": "^6.4.14",
     "@types/pug": "^2.0.6",
     "typescript": "^5.0.4"
   }

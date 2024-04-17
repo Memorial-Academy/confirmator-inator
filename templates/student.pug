@@ -1,33 +1,78 @@
 html
     head 
-        style 
-            | p, li { font-family: sans-serif; }
-            | p, li:last-child { margin-bottom: 2em; }
-            | img { width: 35%; }
-            | .heading { font-weight: bold; margin-bottom: 0.5em; }
-            | ul { margin-top: 0; }
-            | #meta { margin-bottom:5em; border-bottom: 2px solid black; }
-            | #meta p {font-weight:bold; font-size: 1.5em; }
+        title Let's Code Registration Confirmation - #{student}
+        style
+            | body {
+            |   margin:0;
+            |   background: linear-gradient(135deg, #ffcc35 0%, #f99000 45%, #ff611f 98%);
+            |   background-size: 100% 100%;
+            |   background-repeat: no-repeat;
+            |   padding: 8vw;
+            | }
+            | .tint {
+            |   padding: 20px;
+            |   background-color:rgba(50,50,50,0.1);
+            | }
+            | .content {
+            |   background-color:white;
+            |   width: 74vw;
+            |   padding: 5vh 5vw;
+            | }
+            | header {
+            |   display:flex;
+            |   flex-direction: column;
+            |   align-items: center;
+            |   width: 100%;
+            | }
+            | h1 {
+            |   text-align: center;
+            |   width: 100%;
+            |   font-family: Arial, sans-serif; 
+            |   font-size: 45px;  
+            | }
+            | p, li, a {
+            |   font-family: Arial, sans-serif;
+            |   font-size: 16px;
+            | }
+            | footer p, footer a {
+            |   text-align: center;
+            |   font-size: 13px;
+            |   color:black
+            | }
+            | a {
+            |   text-decoration: underline;
+            |   color: rgb(37, 95, 223);
+            | }
+            | footer img {
+            |   margin: 4px 0;
+            |   width: 10%;
+            | }
     body
-        div(id="meta")
-            p TO: !{email}
-            p SUBJECT: Sign Up Confirmation - Let's Code SBISD
-        p Dear #{parent},
-        p Thank you for signing up to Let's Code Spring Branch!
-        p #{student} is signed up for session #{session.num} of #{course}. They #{lunch} during the camp. Students are not allowed to leave campus on their own to buy lunch from nearby restaurants.
-        p If possible, we ask that students bring their school Chromebook or a personal laptop. They will be able to check out a Chromebook at the school if necessary.
-        p(class="heading") Monday (#{session.start}) to Thursday (#{session.end}):
-        ul
-            li Student drop off will be in the cafeteria at Stratford High School (
-                a(href="https://www.google.com/maps/place/14555+Fern+Dr,+Houston,+TX+77079/") 14555 Fern Dr 77079
-                | ) from 8:30 AM - 9:00 AM
-            li Class will be held from 9:00 AM - 3:30 PM with a one hour lunch at noon
-            li Student pick will start at 3:30 PM back in the cafeteria
-        p Please enter Stratford at the back/south entrance of the school using Perthshire Rd to turn in. There is a door that enters directly into the cafeteria. Attached is a map detailing where that is.
-        p(class="heading") Friday (#{session.virtual}):
-        ul 
-            li Please do not come to the Stratford campus because Stratford will be closed. 
-            li Instead, please join the camp zoom link (the link will be emailed shortly), where your students will deliver presentations on their capstone projects.
-            li The meeting will run from 8:45 AM - 11:00 AM
-        p Please email us with any questions or concerns you have about the camp. We are so excited to meet and teach your kids next week!
-        img(src="https://raw.githubusercontent.com/letscodesb/confirmator-inator/main/public/map.jpg",alt="Map of directions to the building entrance")
+        //- .tint
+        .content
+            header 
+                img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/lets_code/logo_text_vertical_dark.svg", alt="Let's Code logo")
+                h1 Your Sign-up Confirmation
+            main 
+                p Hello #{parent}!
+                p Thanks for signing up for Let's Code; we're excited to have your student, #{student}, join us! This email confirms that we have received your sign-up. The details of your sign-up are below:
+                ul 
+                    li Student name: #{student}
+                    li Attending for #{session}
+                    li Participating in #{course}
+                p
+                    | We'll be sending out information such as virtual classroom links at a later date. If you have any questions, please don't hesitate to contact us at 
+                    a(href="mailto:letscode@memorialacademy.org") letscode@memorialacademy.org
+                    | .
+                p 
+                    | Sincerely,
+                    br 
+                    | The Let's Code Team
+        footer 
+            p Let's Code is a program provided by the Memorial Academy of Science and Technology 
+            p
+                a(href="https://memorialacademy.org")
+                    img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/mast/seal.svg",alt="Memorial Academy seal")
+                    br
+                    | www.memorialacademy.org
+            p Memorial Academy of Science and Technology &copy; 2024
