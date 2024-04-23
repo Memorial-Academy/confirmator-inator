@@ -10,7 +10,7 @@ export interface Message {
 
 export function sendMessages(messages: Array<Message>): void {
     require("dotenv").config();
-    /* const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
         host: "mail.memorialacademy.org",
         port: 587,
         secure: false,
@@ -19,8 +19,8 @@ export function sendMessages(messages: Array<Message>): void {
           pass: process.env.PASSWORD,
         },
         // pool: true
-    });*/
-    const transporter = nodemailer.createTransport(`smtps://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
+    });
+    // const transporter = nodemailer.createTransport(`smtp://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
 
     const sender = transporter.sendMail({
         from: "admin@memorialacademy.org",
