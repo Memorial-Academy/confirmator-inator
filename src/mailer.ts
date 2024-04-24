@@ -8,7 +8,7 @@ export interface Message {
     html: string,
 }
 
-export function sendMessages(messages: Array<Message>): void {
+export function sendMessages(messages: Array<Message>, from: string): void {
     require("dotenv").config();
     const transporter = nodemailer.createTransport({
         host: "mail.memorialacademy.org",
@@ -23,7 +23,7 @@ export function sendMessages(messages: Array<Message>): void {
     // const transporter = nodemailer.createTransport(`smtp://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
 
     const sender = transporter.sendMail({
-        from: "admin@memorialacademy.org",
+        from: from,
         to: "griffin.ferguson@memorialacademy.org",
         subject: messages[0].subject,
         text: messages[0].text,

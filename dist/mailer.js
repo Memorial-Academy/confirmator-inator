@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendMessages = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
-function sendMessages(messages) {
+function sendMessages(messages, from) {
     require("dotenv").config();
     const transporter = nodemailer_1.default.createTransport({
         host: "mail.memorialacademy.org",
@@ -18,7 +18,7 @@ function sendMessages(messages) {
         pool: true
     });
     const sender = transporter.sendMail({
-        from: "admin@memorialacademy.org",
+        from: from,
         to: "griffin.ferguson@memorialacademy.org",
         subject: messages[0].subject,
         text: messages[0].text,

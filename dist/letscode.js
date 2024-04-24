@@ -19,7 +19,7 @@ fs_1.default.createReadStream("data/signup.csv")
     console.error(error);
 })
     .on("end", () => {
-    (0, mailer_1.sendMessages)(messages);
+    (0, mailer_1.sendMessages)(messages, "letscode@memorialacademy.org");
     console.log("ENDED at " + row);
 });
 function newMessage(data) {

@@ -16,7 +16,7 @@ fs.createReadStream("data/signup.csv")
         console.error(error);
     })
     .on("end", () => {
-        sendMessages(messages);
+        sendMessages(messages, "letscode@memorialacademy.org");
         console.log("ENDED at " + row);
     })
 
