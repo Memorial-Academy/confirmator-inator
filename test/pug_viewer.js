@@ -2,8 +2,10 @@ const pug = require("pug");
 const http = require("http");
 const fs = require("fs");
 
-const TemplateFile = process.argv[2];
-const TestParams = JSON.parse(process.argv[3]);
+var params = process.argv.slice(2)
+
+const TemplateFile = params[0];
+const TestParams = JSON.parse(params[1]);
 var compiled = pug.compileFile(TemplateFile)(TestParams);
 
 fs.watchFile(TemplateFile, {}, (curr, prev) => {
