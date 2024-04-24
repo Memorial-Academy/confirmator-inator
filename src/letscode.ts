@@ -3,7 +3,7 @@ import fs from "fs";
 import {parse} from "csv-parse"
 import { Message, sendMessages } from "./mailer";
 
-const template = compileFile("templates/student.pug");
+const template = compileFile("templates/letscode.pug");
 var row = 2;
 var messages: Array<Message> = [];
 
@@ -26,7 +26,7 @@ function newMessage(data: Array<String>): void {
         parent: data[3] == data[5] ? "parent of " + data[5] : data[3],
         student: data[5],
         course: data[8],
-        session: data[13]
+        session: process.argv[2] == "adv" ? "June 10 - 14 & June 17 - 21" : data[9]
     };
     var content = template(options);
     messages.push({

@@ -12,13 +12,13 @@ export function sendMessages(messages: Array<Message>): void {
     require("dotenv").config();
     const transporter = nodemailer.createTransport({
         host: "mail.memorialacademy.org",
-        port: 587,
+        port: 25,
         secure: false,
         auth: {
           user: process.env.USERNAME,
           pass: process.env.PASSWORD,
         },
-        // pool: true
+        pool: true
     });
     // const transporter = nodemailer.createTransport(`smtp://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
 

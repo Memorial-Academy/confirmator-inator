@@ -7,7 +7,7 @@ const pug_1 = require("pug");
 const fs_1 = __importDefault(require("fs"));
 const csv_parse_1 = require("csv-parse");
 const mailer_1 = require("./mailer");
-const template = (0, pug_1.compileFile)("templates/student.pug");
+const template = (0, pug_1.compileFile)("templates/letscode.pug");
 var row = 2;
 var messages = [];
 fs_1.default.createReadStream("data/signup.csv")
@@ -28,7 +28,7 @@ function newMessage(data) {
         parent: data[3] == data[5] ? "parent of " + data[5] : data[3],
         student: data[5],
         course: data[8],
-        session: data[13]
+        session: process.argv[2] == "adv" ? "June 10 - 14 & June 17 - 21" : data[9]
     };
     var content = template(options);
     messages.push({

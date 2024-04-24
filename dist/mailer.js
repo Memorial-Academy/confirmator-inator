@@ -7,7 +7,16 @@ exports.sendMessages = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
 function sendMessages(messages) {
     require("dotenv").config();
-    const transporter = nodemailer_1.default.createTransport(`smtps://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
+    const transporter = nodemailer_1.default.createTransport({
+        host: "mail.memorialacademy.org",
+        port: 25,
+        secure: false,
+        auth: {
+            user: process.env.USERNAME,
+            pass: process.env.PASSWORD,
+        },
+        pool: true
+    });
     const sender = transporter.sendMail({
         from: "admin@memorialacademy.org",
         to: "griffin.ferguson@memorialacademy.org",
