@@ -1,28 +1,34 @@
-html
+doctype html
+html(lang="en")
     head 
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Let's Code Registration Confirmation - #{student}
         style
             | body {
+            |   margin: 0;
+            |   padding: 0;
+            |   width: 100%;
+            | }
+            | .background {
             |   margin:0;
             |   background: linear-gradient(135deg, #ffcc35 0%, #f99000 45%, #ff611f 98%);
             |   background-size: 100% 100%;
             |   background-repeat: no-repeat;
             |   padding: 8vw;
-            |   width: 100%;
+            |   width: 84%;
             | }
             | .content {
             |   background-color:white;
-            |   width: 100%;
-            |   padding: 5vh 5vw;
+            |   width: 88%;
+            |   padding: 5vh 6%;
             | }
             | header {
-            |   display:flex;
-            |   flex-direction: column;
-            |   align-items: center;
             |   width: 100%;
             | }
             | header img {
             |    width: 40%;
+            |    margin: 0 30%;
             | }
             | h1 {
             |   text-align: center;
@@ -48,30 +54,31 @@ html
             |   width: 10%;
             | }
     body
-        .content
-            header 
-                img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/lets_code/logo_text_vertical_dark/logo_text_vertical_dark_1024.png", alt="Let's Code logo")
-                h1 Your Sign-up Confirmation
-            main 
-                p Hello #{parent}!
-                p Thanks for signing up for Let's Code; we're excited to have your student, #{student}, join us! This email confirms that we have received your sign-up. The details of your sign-up are below:
-                ul 
-                    li Student name: #{student}
-                    li Attending for #{session}
-                    li Participating in #{course}
+        .background
+            .content
+                header 
+                    img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/lets_code/logo_text_vertical_dark/logo_text_vertical_dark_1024.png", alt="Let's Code logo")
+                    h1 Your Sign-up Confirmation
+                main 
+                    p Hello #{parent}!
+                    p Thanks for signing up for Let's Code; we're excited to have your student, #{student}, join us! This email confirms that we have received your sign-up. The details of your sign-up are below:
+                    ul 
+                        li Student name: #{student}
+                        li Attending for #{session}
+                        li Participating in #{course}
+                    p
+                        | We'll be sending out information such as virtual classroom links at a later date. If you have any questions, please don't hesitate to contact us at 
+                        a(href="mailto:letscode@memorialacademy.org") letscode@memorialacademy.org
+                        | .
+                    p 
+                        | Sincerely,
+                        br 
+                        | The Let's Code Team
+            footer 
+                p Let's Code is a program provided by the Memorial Academy of Science and Technology 
                 p
-                    | We'll be sending out information such as virtual classroom links at a later date. If you have any questions, please don't hesitate to contact us at 
-                    a(href="mailto:letscode@memorialacademy.org") letscode@memorialacademy.org
-                    | .
-                p 
-                    | Sincerely,
-                    br 
-                    | The Let's Code Team
-        footer 
-            p Let's Code is a program provided by the Memorial Academy of Science and Technology 
-            p
-                a(href="https://memorialacademy.org", target="_blank")
-                    img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/mast/seal/seal_256.png",alt="Memorial Academy logo")
-                    br
-                    | www.memorialacademy.org
-            p Memorial Academy of Science and Technology &copy; 2024
+                    a(href="https://memorialacademy.org", target="_blank")
+                        img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/mast/seal/seal_256.png",alt="Memorial Academy logo")
+                        br
+                        | www.memorialacademy.org
+                p Memorial Academy of Science and Technology &copy; 2024
