@@ -30,9 +30,8 @@ function newMessage(data: Array<String>): void {
     };
     var content = template(options);
     messages.push({
-        from: "letscode@memorialacademy.org",
         to: (options.email as string),
-        subject: "You're Enrollment Confirmation - Let's Code",
+        subject: "Your Enrollment Confirmation - Let's Code",
         text: "Thanks for enrolling your student in Let's Code!",
         html: content
     });
