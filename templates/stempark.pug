@@ -1,0 +1,90 @@
+doctype html
+html(lang="en")
+    head 
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title STEMpark Registration Confirmation - #{student}
+        style
+            | body {
+            |   margin: 0;
+            |   padding: 0;
+            |   width: 100%;
+            | }
+            | .background {
+            |   margin:0;
+            |   background: linear-gradient(135deg,#8cff35,#19e449 45%,#09830b 98%);
+            |   background-size: 100% 100%;
+            |   background-repeat: no-repeat;
+            |   padding: 8%;
+            |   width: 84%;
+            | }
+            | .content {
+            |   background-color:white;
+            |   width: 88%;
+            |   padding: 5% 6%;
+            | }
+            | header {
+            |   width: 100%;
+            | }
+            | header img {
+            |    width: 40%;
+            |    margin: 0 30%;
+            | }
+            | h1 {
+            |   text-align: center;
+            |   width: 100%;
+            |   font-family: Arial, sans-serif; 
+            |   font-size: 36px;
+            | }
+            | h2 {
+            |   text-align: center;
+            |   width: 100%;
+            |   font-family: Arial, sans-serif; 
+            |   font-size: 27px;
+            | }
+            | p, li, a {
+            |   font-family: Arial, sans-serif;
+            |   font-size: 16px;
+            | }
+            | footer p, footer a {
+            |   text-align: center;
+            |   font-size: 13px;
+            |   color:black
+            | }
+            | a {
+            |   text-decoration: underline;
+            |   color: rgb(37, 95, 223);
+            | }
+            | footer img {
+            |   margin: 4px 0;
+            |   width: 10%;
+            | }
+    body
+        .background
+            .content
+                header 
+                    img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/stempark/logo_vertical_dark/logo_vertical_dark_1024.png", alt="STEMpark logo")
+                    h1 Your Sign-up Confirmation
+                main 
+                    p Hello #{parent}!
+                    p Thanks for signing up for STEMpark; we're excited to have your student, #{student}, join us! This email confirms that we have received your sign-up.
+                    h2 Release of Liability Waiver for STEMpark 
+                    p Parents of students participating in STEMpark are required to sign a release of liability waiver to participate in STEMpark. To sign this waiver, please visit this website: 
+                        a(href="https://docuseal.co/d/ngLPB1Wro6ceiW", target="_blank") https://docuseal.co/d/ngLPB1Wro6ceiW
+                        | .
+                    p
+                        | If you have any questions, please don't hesitate to contact us at 
+                        a(href="mailto:stempark@memorialacademy.org") stempark@memorialacademy.org
+                        | .
+                    p 
+                        | Sincerely,
+                        br 
+                        | The Let's Code Team
+            footer 
+                p STEMpark is a program provided by the Memorial Academy of Science and Technology 
+                p
+                    a(href="https://memorialacademy.org", target="_blank")
+                        img(src="https://raw.githubusercontent.com/Memorial-Academy/branding/main/mast/seal/seal_256.png",alt="Memorial Academy logo")
+                        br
+                        | www.memorialacademy.org
+                p Memorial Academy of Science and Technology &copy; 2024

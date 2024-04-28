@@ -7,7 +7,8 @@
     "prepare_emails": "tsc && rm -rf data/output && mkdir data/output",
     "compile": "node dist/student.js",
     "build": "npm run prepare && npm run compile",
-    "test:letscode_student": "node test/pug_viewer.js ./templates/letscode.pug \"{\\\"email\\\":\\\"test@example.com\\\", \\\"parent\\\":\\\"John Doe\\\",\\\"student\\\":\\\"Jane Doe\\\", \\\"session\\\":\\\"Week 2: June 10 - 14\\\", \\\"course\\\":\\\"Introduction to Web Development\\\"}\""
+    "test:letscode_student": "node test/pug_viewer.js ./templates/letscode.pug \"{\\\"email\\\":\\\"test@example.com\\\", \\\"parent\\\":\\\"John Doe\\\",\\\"student\\\":\\\"Jane Doe\\\", \\\"session\\\":\\\"Week 2: June 10 - 14\\\", \\\"course\\\":\\\"Introduction to Web Development\\\"}\"",
+    "test:stempark_student": "node test/pug_viewer.js ./templates/stempark.pug \"{\\\"email\\\":\\\"test@example.com\\\", \\\"parent\\\":\\\"John Doe\\\",\\\"student\\\":\\\"Jane Doe\\\"}\""
   },
   "author": "",
   "license": "ISC",

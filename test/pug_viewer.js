@@ -5,7 +5,7 @@ const fs = require("fs");
 var params = process.argv.slice(2)
 
 const TemplateFile = params[0];
-const TestParams = JSON.parse(params[1]);
+const TestParams = JSON.parse(params[1] ? params[1] : "{}");
 var compiled = pug.compileFile(TemplateFile)(TestParams);
 
 fs.watchFile(TemplateFile, {}, (curr, prev) => {
