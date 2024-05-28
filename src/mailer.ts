@@ -25,7 +25,6 @@ export function sendMessages(messages: Array<Message>, from: string): void {
         from: from,
         to: "griffin.ferguson@memorialacademy.org",
         subject: messages[0].subject,
-        text: messages[0].text,
         html: messages[0].html
     })
     sender.finally(() => {

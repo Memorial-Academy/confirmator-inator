@@ -7,7 +7,7 @@ const pug_1 = require("pug");
 const fs_1 = __importDefault(require("fs"));
 const csv_parse_1 = require("csv-parse");
 const mailer_1 = require("./mailer");
-const template = (0, pug_1.compileFile)("templates/letscode.pug");
+const template = (0, pug_1.compileFile)("templates/stempark.pug");
 var row = 2;
 var messages = [];
 fs_1.default.createReadStream("data/signup.csv")
@@ -19,7 +19,7 @@ fs_1.default.createReadStream("data/signup.csv")
     console.error(error);
 })
     .on("end", () => {
-    (0, mailer_1.sendMessages)(messages, "Let's Code <letscode@memorialacademy.org>");
+    (0, mailer_1.sendMessages)(messages, "STEMpark <stempark@memorialacademy.org>");
     console.log("ENDED at " + row);
 });
 function newMessage(data) {
@@ -27,14 +27,13 @@ function newMessage(data) {
         email: data[4],
         parent: data[3] == data[5] ? "parent of " + data[5] : data[3],
         student: data[5],
-        course: data[8],
-        session: process.argv[2] == "adv" ? "June 10 - 14 & June 17 - 21" : data[9]
+        session: "June 24 - 27"
     };
     var content = template(options);
     messages.push({
         to: options.email,
-        subject: "Your Enrollment Confirmation - Let's Code",
-        text: "Thanks for enrolling your student in Let's Code!",
+        subject: "Your Enrollment Confirmation & Liability Waiver - STEMpark",
+        text: "Thanks for enrolling your student in STEMpark! Please make sure to read and complete the included release of liability form.",
         html: content
     });
     row += 1;

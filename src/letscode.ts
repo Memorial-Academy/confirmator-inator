@@ -17,6 +17,7 @@ fs.createReadStream("data/signup.csv")
     })
     .on("end", () => {
         sendMessages(messages, "Let's Code <letscode@memorialacademy.org>");
+        // fs.writeFileSync("./test.html", messages[0].html, {encoding: "utf-8"});
         console.log("ENDED at " + row);
     })
 
@@ -29,6 +30,9 @@ function newMessage(data: Array<String>): void {
         session: process.argv[2] == "adv" ? "June 10 - 14 & June 17 - 21" : data[9]
     };
     var content = template(options);
+    //var dataURI = `data:text/html;base64,${Buffer.from(content).toString("base64")}`;
+    //content = content.replace(`<div id=\"browser-view\"></div>`, `<a href="${dataURI}" target="_blank">Not loading correctly? Click here to open in a new window.</a>`)
+
     messages.push({
         to: (options.email as string),
         subject: "Your Enrollment Confirmation - Let's Code",
