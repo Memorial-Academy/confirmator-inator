@@ -17,25 +17,9 @@ function sendMessages(messages, from) {
         },
         pool: true
     });
-    var i = 0;
-    transporter.on("idle", () => {
-        if (i < messages.length) {
-            const sender = transporter.sendMail({
-                from: from,
-                to: "griffin.ferguson@memorialacademy.org",
-                subject: messages[i].subject,
-                text: messages[i].text,
-                html: messages[i].html
-            });
-            sender.finally(() => {
-                console.log("sent message to " + messages[i].to);
-            });
-            i++;
-        }
-        else {
-            transporter.close();
-            console.log("done");
-        }
-    });
+    setTimeout(() => {
+        var message = messages.shift();
+        console.log("simulating" + message.to);
+    }, 20000);
 }
 exports.sendMessages = sendMessages;

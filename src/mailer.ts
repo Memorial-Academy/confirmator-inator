@@ -21,26 +21,37 @@ export function sendMessages(messages: Array<Message>, from: string): void {
     });
     // const transporter = nodemailer.createTransport(`smtp://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
 
+    // transporter.on("idle", () => {
+    //     while (transporter.isIdle() && messages.length) {
+    //         var message = messages.shift()!;
+    //         transporter.sendMail({
+    //             from: from,
+    //             // to: message.to,
+    //             to: "griffin.ferguson@memorialacademy.org",
+    //             subject: message.subject,
+    //             text: message.text,
+    //             html: message.html
+    //         }).finally(() => {
+    //             console.log("sent message to " + message.to);
+    //         });
+    //         i++;
+    //     }
+    // })
 
-    var i = 0;
-
-    transporter.on("idle", () => {
-        while (transporter.isIdle() && messages.length) {
-            var message = messages.shift()!;
-            const sender = transporter.sendMail({
-                from: from,
-                // to: message.to,
-                to: "griffin.ferguson@memorialacademy.org",
-                subject: message.subject,
-                text: message.text,
-                html: message.html
-            });
-            sender.finally(() => {
-                console.log("sent message to " + messages[i].to);
-            });
-            i++;
-        }
-    })
+    setTimeout(() => {
+        var message = messages.shift()!;
+        /*transporter.sendMail({
+            from: from,
+            // to: message.to,
+            to: "griffin.ferguson@memorialacademy.org",
+            subject: message.subject,
+            text: message.text,
+            html: message.html
+        }).finally(() => {
+            console.log("sent message to " + message.to);
+        });*/
+        console.log("simulating" + message.to);
+    }, 20000)
 
     // const sender = transporter.sendMail({
     //     from: from,
