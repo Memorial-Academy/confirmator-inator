@@ -25,22 +25,20 @@ export function sendMessages(messages: Array<Message>, from: string): void {
     var i = 0;
 
     transporter.on("idle", () => {
-        if (i < messages.length) {
+        while (transporter.isIdle() && messages.length) {
+            var message = messages.shift()!;
             const sender = transporter.sendMail({
                 from: from,
-                // to: messages[i].to,
+                // to: message.to,
                 to: "griffin.ferguson@memorialacademy.org",
-                subject: messages[i].subject,
-                text: messages[i].text,
-                html: messages[i].html
+                subject: message.subject,
+                text: message.text,
+                html: message.html
             });
             sender.finally(() => {
                 console.log("sent message to " + messages[i].to);
             });
             i++;
-        } else {
-            transporter.close();
-            console.log("done");
         }
     })
 
