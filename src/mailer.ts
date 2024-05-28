@@ -21,10 +21,13 @@ export function sendMessages(messages: Array<Message>, from: string): void {
     });
     // const transporter = nodemailer.createTransport(`smtp://${process.env.USERNAME}:${process.env.PASSWORD}@mail.memorialacademy.org:25`);
 
+
+
     const sender = transporter.sendMail({
         from: from,
         to: "griffin.ferguson@memorialacademy.org",
         subject: messages[0].subject,
+        text: messages[0].text,
         html: messages[0].html
     })
     sender.finally(() => {
