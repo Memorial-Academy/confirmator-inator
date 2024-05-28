@@ -17,9 +17,23 @@ function sendMessages(messages, from) {
         },
         pool: true
     });
-    setTimeout(() => {
-        var message = messages.shift();
-        console.log("simulating" + message.to);
-    }, 20000);
+    setInterval(() => {
+        if (messages.length > 0) {
+            var message = messages.shift();
+            transporter.sendMail({
+                from: from,
+                to: "griffin.ferguson@memorialacademy.org",
+                subject: message.subject,
+                text: message.text,
+                html: message.html
+            }).finally(() => {
+                console.log("sent message to " + message.to);
+            });
+        }
+        else {
+            console.log("done");
+            transporter.close();
+        }
+    }, 10000);
 }
 exports.sendMessages = sendMessages;

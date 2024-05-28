@@ -38,20 +38,24 @@ export function sendMessages(messages: Array<Message>, from: string): void {
     //     }
     // })
 
-    setTimeout(() => {
-        var message = messages.shift()!;
-        /*transporter.sendMail({
-            from: from,
-            // to: message.to,
-            to: "griffin.ferguson@memorialacademy.org",
-            subject: message.subject,
-            text: message.text,
-            html: message.html
-        }).finally(() => {
-            console.log("sent message to " + message.to);
-        });*/
-        console.log("simulating" + message.to);
-    }, 20000)
+    setInterval(() => {
+        if (messages.length > 0) {
+            var message = messages.shift()!;
+            transporter.sendMail({
+                from: from,
+                // to: message.to,
+                to: "griffin.ferguson@memorialacademy.org",
+                subject: message.subject,
+                text: message.text,
+                html: message.html
+            }).finally(() => {
+                console.log("sent message to " + message.to);
+            });
+        } else {
+            console.log("done");
+            transporter.close();
+        }
+    }, 10000)
 
     // const sender = transporter.sendMail({
     //     from: from,
