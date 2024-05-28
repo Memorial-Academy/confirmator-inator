@@ -38,6 +38,8 @@ export function sendMessages(messages: Array<Message>, from: string): void {
     //     }
     // })
 
+    console.log("First email queued: to " + messages[0])
+
     const sender = setInterval(() => {
         if (messages.length > 0) {
             var message = messages.shift()!;
