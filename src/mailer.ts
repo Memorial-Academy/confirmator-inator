@@ -38,13 +38,13 @@ export function sendMessages(messages: Array<Message>, from: string): void {
     //     }
     // })
 
-    setInterval(() => {
+    const sender = setInterval(() => {
         if (messages.length > 0) {
             var message = messages.shift()!;
             transporter.sendMail({
                 from: from,
-                // to: message.to,
-                to: "griffin.ferguson@memorialacademy.org",
+                to: message.to,
+                //to: "griffin.ferguson@memorialacademy.org",
                 subject: message.subject,
                 text: message.text,
                 html: message.html
@@ -54,6 +54,7 @@ export function sendMessages(messages: Array<Message>, from: string): void {
         } else {
             console.log("done");
             transporter.close();
+            clearInterval(sender);
         }
     }, 10000)
 

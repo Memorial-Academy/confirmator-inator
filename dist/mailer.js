@@ -17,12 +17,12 @@ function sendMessages(messages, from) {
         },
         pool: true
     });
-    setInterval(() => {
+    const sender = setInterval(() => {
         if (messages.length > 0) {
             var message = messages.shift();
             transporter.sendMail({
                 from: from,
-                to: "griffin.ferguson@memorialacademy.org",
+                to: message.to,
                 subject: message.subject,
                 text: message.text,
                 html: message.html
@@ -33,6 +33,7 @@ function sendMessages(messages, from) {
         else {
             console.log("done");
             transporter.close();
+            clearInterval(sender);
         }
     }, 10000);
 }
