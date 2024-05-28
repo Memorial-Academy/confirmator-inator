@@ -17,7 +17,6 @@ fs.createReadStream("data/signup.csv")
     })
     .on("end", () => {
         sendMessages(messages, "Let's Code <letscode@memorialacademy.org>");
-        // fs.writeFileSync("./test.html", messages[0].html, {encoding: "utf-8"});
         console.log("ENDED at " + row);
     })
 

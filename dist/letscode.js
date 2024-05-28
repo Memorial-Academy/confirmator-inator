@@ -34,7 +34,7 @@ function newMessage(data) {
     messages.push({
         to: options.email,
         subject: "Your Enrollment Confirmation - Let's Code",
-        text: "Thanks for enrolling your student in Let's Code!",
+        text: "Thanks for enrolling your student in Let's Code! This email confirms their enrollment.",
         html: content
     });
     row += 1;

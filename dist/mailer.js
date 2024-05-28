@@ -17,15 +17,25 @@ function sendMessages(messages, from) {
         },
         pool: true
     });
-    const sender = transporter.sendMail({
-        from: from,
-        to: "griffin.ferguson@memorialacademy.org",
-        subject: messages[0].subject,
-        html: messages[0].html
-    });
-    sender.finally(() => {
-        console.log("sent");
-        transporter.close();
+    var i = 0;
+    transporter.on("idle", () => {
+        if (i < messages.length) {
+            const sender = transporter.sendMail({
+                from: from,
+                to: "griffin.ferguson@memorialacademy.org",
+                subject: messages[i].subject,
+                text: messages[i].text,
+                html: messages[i].html
+            });
+            sender.finally(() => {
+                console.log("sent message to " + messages[i].to);
+            });
+            i++;
+        }
+        else {
+            transporter.close();
+            console.log("done");
+        }
     });
 }
 exports.sendMessages = sendMessages;
