@@ -25,7 +25,7 @@ function sendMessages(messages, from) {
                 from: from,
                 to: message.to,
                 subject: message.subject,
-                text: message.text,
+                text: message.html.split("<body>")[1].replace(/<[^>]*>/gm, ""),
                 html: message.html
             }).finally(() => {
                 console.log("sent message to " + message.to);

@@ -31,7 +31,6 @@ function newMessage(data: Array<String>): void {
     messages.push({
         to: (options.email as string),
         subject: "Your Enrollment Confirmation & Liability Waiver - STEMpark",
-        text: "Thanks for enrolling your student in STEMpark! Please make sure to read and complete the included release of liability form.",
         html: content
     });
     row+=1;

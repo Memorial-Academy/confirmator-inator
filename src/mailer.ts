@@ -3,7 +3,6 @@ import nodemailer from "nodemailer";
 export interface Message {
     to: string,
     subject: string,
-    text: string,
     html: string,
 }
 
@@ -48,7 +47,7 @@ export function sendMessages(messages: Array<Message>, from: string): void {
                 to: message.to,
                 //to: "griffin.ferguson@memorialacademy.org",
                 subject: message.subject,
-                text: message.text,
+                text: message.html.split("<body>")[1].replace(/<[^>]*>/gm, ""),
                 html: message.html
             }).finally(() => {
                 console.log("sent message to " + message.to);
